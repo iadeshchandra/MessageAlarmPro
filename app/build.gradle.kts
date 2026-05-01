@@ -10,7 +10,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.trackiq.Message_Alarm_Pro"
+        // Corrected to match Firebase Console exactly
+        applicationId = "com.trackiq.messagealarm"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
