@@ -37,10 +37,10 @@ jobs:
       run: find . -name "desktop.ini" -type f -delete
 
     # 🔐 THE MAGIC STEP: Recreate the JSON file from your secure GitHub Vault!
-    - name: Decode and create google-services.json
+    - name: Create google-services.json from Raw JSON
       env:
         FIREBASE_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON }}
-      run: echo "$FIREBASE_SECRET" | base64 -d > app/google-services.json
+      run: echo "$FIREBASE_SECRET" > app/google-services.json
 
     - name: Build Installable APK
       run: ./gradlew assembleDebug
