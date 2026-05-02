@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("kotlin-kapt")
+    // ADD THIS LINE
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -10,7 +12,6 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        // Corrected to match Firebase Console exactly
         applicationId = "com.trackiq.messagealarm"
         minSdk = 24
         targetSdk = 34
@@ -50,7 +51,7 @@ android {
         kotlinCompilerExtensionVersion = "1.5.8"
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -98,7 +99,7 @@ dependencies {
 
     // Hilt Dependency Injection
     implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
     // Serialization
@@ -118,4 +119,9 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
