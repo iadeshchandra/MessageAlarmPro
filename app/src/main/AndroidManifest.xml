@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -19,6 +18,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MessageAlarmPro"
@@ -35,7 +35,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Notification Listener Service -->
         <service
             android:name=".services.NotificationListenerService"
             android:enabled="true"
@@ -47,13 +46,11 @@
             </intent-filter>
         </service>
 
-        <!-- Alert Service -->
         <service
             android:name=".services.AlertService"
             android:enabled="true"
             android:exported="false" />
 
-        <!-- Boot Receiver -->
         <receiver
             android:name=".receivers.BootReceiver"
             android:enabled="true"
@@ -63,7 +60,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- Firebase Messaging Service -->
         <service
             android:name=".services.FirebaseMessagingService"
             android:enabled="true"
